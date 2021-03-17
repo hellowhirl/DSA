@@ -1,7 +1,5 @@
 package com.DSA;
 
-import java.util.Arrays;
-
 public class Array {
     private int length;
     private int currentCount = 0;
@@ -21,7 +19,7 @@ public class Array {
     }
 
     public void print() {
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < currentCount; i++) {
             System.out.println(myArray[i]);
         }
     }
@@ -32,21 +30,17 @@ public class Array {
             myArray[i] = myArray[i + 1];
         }
         currentCount--;
-        int[] dest = new int[currentCount];
-        System.arraycopy(myArray, 0, dest, 0, currentCount);
-        myArray = dest;
+//        int[] dest = new int[currentCount];
+//        System.arraycopy(myArray, 0, dest, 0, currentCount);
+//        myArray = dest;
     }
 
-    public void indexOf(int index) {
-        boolean notFound = true;
+    public int indexOf(int item) {
         for(int i = 0; i < length; i++) {
-            if(myArray[i] == index) {
-                System.out.println(i);
-                notFound = false;
+            if (myArray[i] == item) {
+                return i;
             }
         }
-        if(notFound) {
-            System.out.println(-1);
-        }
+        return -1;
     }
 }

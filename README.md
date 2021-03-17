@@ -98,3 +98,12 @@ Delete - O(n)
   - The more items we have the more this shifting operation is going to cost us
 
 \* To avoid these poor performing scenarios we use Linked Lists
+
+// we use Arrays class to use `toString` method
+
+```
+System.out.println(Arrays.toString(numbers)); 
+```
+Java has 2 implementations of dynamic arrays, classes from java.util package 
+- Vector: grows by 100% of its size every time it gets full - synchronized
+- ArrayList: goows by 50% of its size every time it gets full - asynchronous 

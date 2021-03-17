@@ -1,21 +1,21 @@
 package com.DSA;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-	    Array numbers = new Array(3);
-	    numbers.insert(10);
-	    numbers.insert(20);
-	    numbers.insert(30);
-	    numbers.print();
-	    numbers.removeAt(1);
-	    numbers.insert(70);
-	    numbers.print();
-	    numbers.indexOf(71);
-
-//        System.out.println(numbers.length);
-//        System.out.println(Arrays.toString(numbers)); // we use Arrays class to use toString method
+		ArrayList<Integer> list = new ArrayList<>(); // <> represent a generic paramter; use type Classes (custom Classes work too)
+    	list.add(10);
+    	list.add(20);
+    	list.add(30);
+    	list.add(30);
+    	list.add(30);
+    	list.remove(4);
+		System.out.println(list.size());
+		System.out.println(list);
+		System.out.println(list.contains(20));
+		System.out.println(list.indexOf(20));
+		list.toArray(); // converts this list to regular Array object
     }
 }
