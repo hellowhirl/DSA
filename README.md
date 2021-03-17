@@ -134,3 +134,6 @@ Delete
   - Then garbage collector will clean up unused node
 - End: O(n)
 - Middle: O(n)
+
+In InteliJ we can set a stopper and run Debug mode to inspect our objects and see if they are structured properly
+
