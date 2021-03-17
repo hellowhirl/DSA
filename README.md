@@ -107,3 +107,30 @@ System.out.println(Arrays.toString(numbers));
 Java has 2 implementations of dynamic arrays, classes from java.util package 
 - Vector: grows by 100% of its size every time it gets full - synchronized
 - ArrayList: goows by 50% of its size every time it gets full - asynchronous 
+
+## Linked Lists
+
+- Most common data structure after arrays
+  - they solve many of the problems with arrays - used for complex data structures
+  
+- Used to store a list of objects in sequence
+- Unlike arrays, linked lists can grow and shrink automatically
+- Consists of a group of nodes in sequence
+  - holds 2 pieces of data: value and address (reference) of next node in the list
+  - First node is Head and last node is Tail
+  
+Lookup 
+- By value: O(n)
+- By index: O(n)
+
+Insert
+- At end: O(1) - we have reference to Tail
+- At beginning: O(1) - we have reference to Head
+  - and then we simply update the links (references)
+- At middle: O(n)
+
+Delete
+- Beginning: O(1) - have the Head point to the 2nd node, also remove link from previous Head
+  - Then garbage collector will clean up unused node
+- End: O(n)
+- Middle: O(n)

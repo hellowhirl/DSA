@@ -1,21 +1,20 @@
 package com.DSA;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
-		ArrayList<Integer> list = new ArrayList<>(); // <> represent a generic paramter; use type Classes (custom Classes work too)
-    	list.add(10);
-    	list.add(20);
-    	list.add(30);
-    	list.add(30);
-    	list.add(30);
-    	list.remove(4);
+		LinkedList list = new LinkedList(); // if we don't specify anything with <> then we can store any kind of object
+		list.addLast(10);
+		list.addLast(20);
+		list.addLast(30);
+		list.addFirst(5);
 		System.out.println(list.size());
-		System.out.println(list);
-		System.out.println(list.contains(20));
-		System.out.println(list.indexOf(20));
-		list.toArray(); // converts this list to regular Array object
+		// list.removeLast() // and other similar methods to ArrayList
+		System.out.println(list); // will return what looks like an array [], but actual it's a list
+		var newArray = list.toArray();
+		System.out.println(Arrays.toString(newArray)); // will output a string of [5, 10, 20, 30]
     }
 }
