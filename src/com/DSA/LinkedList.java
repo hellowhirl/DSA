@@ -81,12 +81,35 @@ public class LinkedList {
         }
     }
 
-    public void removeLast() throws Exception {
-        if (first == null)
-            throw new Exception("Can't delete item from empty Linked List");
-        else if (first.next != null) {
-
-        }
+    public void removeLast() {
+        if (isEmpty()) // let's reuse our method from before
+            throw new NoSuchElementException("Can't delete item from empty Linked List"); // mirror behavior of LinkedList in java.utils
+        var current = first;
+        var nodeHolder = current;
+        while(current != null) {
+            if (current.next == null) {
+                nodeHolder.next = null;
+                last = nodeHolder;
+                return;
+            }
+            nodeHolder = current;
+            current = current.next;
+        };
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

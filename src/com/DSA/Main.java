@@ -6,10 +6,12 @@ public class Main {
     	list.addLast(10);
     	list.addLast(20);
     	list.addLast(30);
-		System.out.println(list.indexOf(50));
+		System.out.println(list.indexOf(20));
+		System.out.println(list.indexOf(100));
 		System.out.println(list.length());
 		System.out.println(list.contains(30));
+//    	list.removeFirst();
+		list.removeLast();
 //    	list.addFirst(1);
-//    	list.deleteFirst();
 	}
 }
