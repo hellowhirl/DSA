@@ -105,7 +105,7 @@ Delete - O(n)
 System.out.println(Arrays.toString(numbers)); 
 ```
 Java has 2 implementations of dynamic arrays, classes from java.util package 
-- Vector: grows by 100% of its size every time it gets full - synchronized
+- Vector: grows by 100% of its size every time it gets full - synchronous
 - ArrayList: goows by 50% of its size every time it gets full - asynchronous 
 
 ## Linked Lists
@@ -117,6 +117,7 @@ Java has 2 implementations of dynamic arrays, classes from java.util package
 - Unlike arrays, linked lists can grow and shrink automatically
 - Consists of a group of nodes in sequence
   - holds 2 pieces of data: value and address (reference) of next node in the list
+      - any random location can be assigned in memory
   - First node is Head and last node is Tail
   
 Lookup 
@@ -138,3 +139,33 @@ Delete
 In InteliJ we can set a stopper and run Debug mode to inspect our objects and see if they are structured properly
 
 As we are implementing operations in our data structures we should think about efficiency.
+
+### Arrays vs Linked Lists
+
+Need to be able to explain in terms of time (above) and space complexity (below)
+
+#### Space
+
+- Static arrays have a fixed size
+  - If we don't know size in advance then we should use dynamic arrays or linked lists
+  
+- Dynamic arrays grow by 50%-100% every time they're resized and may end up wasting memory
+- Linked lists only take as much memory as they really need
+  - Up front they tend to take up more memory because they are storing and value and address of next node
+  
+- Example: if we have a rough estimate of 100 items we should use a dynamic array, and set size to 100 at first
+- We need to understand what kind of problem that we are trying to solve, and consider the tradeoffs
+
+### Types of Linked Lists
+
+Singly and Doubly
+
+- Both can be circular: the last node will reference the first node
+  - Use case: a music player that plays every song in a list then goes back to beginning after reaching the end
+
+#### Doubly
+
+- contains an additional field which is a reference to the previous node
+- Deleting from the end becomes O(1) operation; can be a negligible gain in performance
+  - We can traverse the list backwards
+
