@@ -8,6 +8,7 @@ public class LinkedList {
         private int value;
         private Node next;
 
+        // constructor for intiializing the value each time we create a new Node object
         public Node(int value) {
             this.value = value; // whenever we create a Node object we should always store the passed value
         }
@@ -15,6 +16,7 @@ public class LinkedList {
 
     private Node first;
     private Node last;
+    private int size; // if we just declare a variable then the default value is set to 0
     ArrayList<Object> list = new ArrayList<>();
 
     public void addLast(int item) {
@@ -29,6 +31,8 @@ public class LinkedList {
             last.next = node; // link last Node to this new node, before we set last to the new node
             last = node;
         }
+
+        size++;
     }
     public void addFirst(int item) {
         var node = new Node(item);
@@ -40,6 +44,8 @@ public class LinkedList {
             node.next = first;
             first = node;
         }
+
+        size++;
     }
 
     private boolean isEmpty() {
@@ -57,14 +63,9 @@ public class LinkedList {
         return -1;
     }
 
-    public int length() {
-        int count = 0;
-        var current = first;
-        while(current != null) {
-            current = current.next;
-            count++;
-        };
-        return count;
+    // an O(1) operation
+    public int size() {
+        return size; // better than iterating through entire list each time, especially for longer lists
     }
 
     public boolean contains(int item) {
@@ -79,22 +80,31 @@ public class LinkedList {
             first.next = null;
             first = second;
         }
+
+        size--;
     }
 
     public void removeLast() {
         if (isEmpty()) // let's reuse our method from before
             throw new NoSuchElementException("Can't delete item from empty Linked List"); // mirror behavior of LinkedList in java.utils
-        var current = first;
-        var nodeHolder = current;
-        while(current != null) {
-            if (current.next == null) {
-                nodeHolder.next = null;
-                last = nodeHolder;
-                return;
-            }
-            nodeHolder = current;
-            current = current.next;
-        };
+
+        // easy edge case for when we have only 1 item in the list
+        if (first == last) {
+            first = last = null;
+        } else {
+            var current = first;
+            var nodeHolder = current;
+            while(current != null) {
+                if (current.next == null) {
+                    nodeHolder.next = null;
+                    last = nodeHolder;
+                    break;
+                }
+                nodeHolder = current;
+                current = current.next;
+            };
+        }
+        size--;
     }
 
 }

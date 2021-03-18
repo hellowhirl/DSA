@@ -137,3 +137,4 @@ Delete
 
 In InteliJ we can set a stopper and run Debug mode to inspect our objects and see if they are structured properly
 
+As we are implementing operations in our data structures we should think about efficiency.
