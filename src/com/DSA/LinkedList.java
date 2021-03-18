@@ -1,6 +1,7 @@
 package com.DSA;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class LinkedList {
     private class Node {
@@ -67,23 +68,20 @@ public class LinkedList {
     }
 
     public boolean contains(int item) {
-        var current = first;
-        while(current != null) {
-            if(current.value == item) return true;
-            current = current.next;
-        };
-        return false;
+        return indexOf(item) != -1; // traverse list from head to tail to find item ? true : false; we already have this logic in indexOf()
     }
 
-    public void deleteFirst() throws Exception {
-        if (first == null)
-            throw new Exception("Can't delete item from empty Linked List");
+    public void removeFirst() {
+        var second = first.next; // this variable is a backup referencing the second node
+        if (isEmpty()) // let's reuse our method from before
+            throw new NoSuchElementException("Can't delete item from empty Linked List"); // mirror behavior of LinkedList in java.utils
         else {
-            first = first.next;
+            first.next = null;
+            first = second;
         }
     }
 
-    public void deleteLast() throws Exception {
+    public void removeLast() throws Exception {
         if (first == null)
             throw new Exception("Can't delete item from empty Linked List");
         else if (first.next != null) {
