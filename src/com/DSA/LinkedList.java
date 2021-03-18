@@ -20,7 +20,7 @@ public class LinkedList {
         var node = new Node(item); // unless we initialize with constructor then this Node will be created without value
 
         // if node is only node in LL, assign it both first and last
-        if (first == null)
+        if (isEmpty())
             // first = node;
             // last = node;
             first = last = node; // simplified
@@ -29,14 +29,66 @@ public class LinkedList {
             last = node;
         }
     }
-    public void addFirst() {
+    public void addFirst(int item) {
+        var node = new Node(item);
+        if (isEmpty())
+            // first = node;
+            // last = node;
+            first = last = node; // simplified
+        else {
+            node.next = first;
+            first = node;
+        }
     }
-    public void deleteFirs() {
+
+    private boolean isEmpty() {
+        return first == null; // we can replace our if statements with a call to this method; avoid repetition
     }
-    public void deleteLast() {
+
+    public int indexOf(int item) {
+        int index = 0;
+        var current = first;
+        while(current != null) {
+            if(current.value == item) return index;;
+            current = current.next;
+            index++;
+        };
+        return -1;
     }
-    public void contains() {
+
+    public int length() {
+        int count = 0;
+        var current = first;
+        while(current != null) {
+            current = current.next;
+            count++;
+        };
+        return count;
     }
-    public void indexOf() {
+
+    public boolean contains(int item) {
+        var current = first;
+        while(current != null) {
+            if(current.value == item) return true;
+            current = current.next;
+        };
+        return false;
     }
+
+    public void deleteFirst() throws Exception {
+        if (first == null)
+            throw new Exception("Can't delete item from empty Linked List");
+        else {
+            first = first.next;
+        }
+    }
+
+    public void deleteLast() throws Exception {
+        if (first == null)
+            throw new Exception("Can't delete item from empty Linked List");
+        else if (first.next != null) {
+
+        }
+    }
+
 }
