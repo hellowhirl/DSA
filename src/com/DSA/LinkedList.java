@@ -1,6 +1,7 @@
 package com.DSA;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -105,6 +106,18 @@ public class LinkedList {
             };
         }
         size--;
+    }
+
+    public int[] toArray() {
+        int[] array = new int[size]; // here we can reuse our size field
+        var current = first;
+        var index = 0;
+        while(current != null) {
+            array[index++] = current.value;
+            current = current.next;
+            // index++; // we can move this iteration increase to above
+        };
+        return array;
     }
 
 }

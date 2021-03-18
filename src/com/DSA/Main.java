@@ -1,5 +1,7 @@
 package com.DSA;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) throws Exception {
     	LinkedList list = new LinkedList();
@@ -15,5 +17,7 @@ public class Main {
 		list.removeLast();
 		list.removeFirst();
 		System.out.println("list size: " + list.size());
+		var array = list.toArray();
+		System.out.println(Arrays.toString(array));
 	}
 }
