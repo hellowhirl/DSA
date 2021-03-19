@@ -138,20 +138,21 @@ public class LinkedList {
     }
 
     public void reverse() {
-        Node current = first;
-        Node lastReference = current;
-        Node nextRefernce = current.next;
-        last = current;
-        last.next = null;
-        current = nextRefernce;
+        if (isEmpty()) return;
+
+        var lastReference = first;
+        var current = first.next;
 
         while(current != null) {
-            nextRefernce = current.next;
+            var nextRefernce = current.next; // we can move this variable inside the while loop
             current.next = lastReference;
             lastReference = current;
             current = nextRefernce;
         };
 
+        // better to group this related code and logic together; don't just think about how code flows linearly
+        last = first;
+        last.next = null;
         first = lastReference;
     }
 }
