@@ -1,7 +1,5 @@
 package com.DSA;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -18,7 +16,8 @@ public class LinkedList {
     private Node first;
     private Node last;
     private int size; // if we just declare a variable then the default value is set to 0
-    ArrayList<Object> list = new ArrayList<>();
+    private int[] array = new int[size]; // here we can reuse our size field
+
 
     public void addLast(int item) {
         var node = new Node(item); // unless we initialize with constructor then this Node will be created without value
@@ -120,6 +119,41 @@ public class LinkedList {
         return array;
     }
 
+    public void temp() {
+        Node current = first;
+        Node lastReference = current;
+        Node nextRefernce = current.next;
+        last = current;
+        last.next = null;
+        current = nextRefernce;
+
+        while(current != null) {
+            lastReference = current;
+            nextRefernce = current.next;
+            current.next = nextRefernce;
+            current = nextRefernce;
+        };
+
+        first = lastReference;
+    }
+
+    public void reverse() {
+        Node current = first;
+        Node lastReference = current;
+        Node nextRefernce = current.next;
+        last = current;
+        last.next = null;
+        current = nextRefernce;
+
+        while(current != null) {
+            nextRefernce = current.next;
+            current.next = lastReference;
+            lastReference = current;
+            current = nextRefernce;
+        };
+
+        first = lastReference;
+    }
 }
 
 
