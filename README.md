@@ -168,4 +168,9 @@ Singly and Doubly
 - contains an additional field which is a reference to the previous node
 - Deleting from the end becomes O(1) operation; can be a negligible gain in performance
   - We can traverse the list backwards
-
+  
+General tips:
+- Always try to simplify a problem - try to find solution for one specific case
+  - Once we solve a specific problem then we can generalize our algorithm
+  
+- A lot of linked list problems can be solved using 2 pointers (pointing to 2 different nodes)

@@ -17,9 +17,12 @@ public class Main {
 		System.out.println(list.contains(30));
 		list.removeLast();
 		list.removeFirst();
-		System.out.println("list size: " + list.size());
+//		list.reverse();
+		list.addLast(40);
+		list.addLast(50);
 		var array = list.toArray();
 		System.out.println(Arrays.toString(array));
-		list.reverse();
+		System.out.println("list size: " + list.size());
+		System.out.println("kthFromTheEnd: " + list.getKthFromTheEnd(2));
 	}
 }

@@ -155,7 +155,31 @@ public class LinkedList {
         last.next = null;
         first = lastReference;
     }
+
+    public int getKthFromTheEnd(int k) {
+        if(k > size || k <= 0) throw new Error("Not within range Megatron");
+
+        var backPointer = first;
+        var current = first;
+        var distance = size - k;
+        System.out.println("pistance: " + distance);
+
+        for (int i = 1; i < size; i++) {
+            if (current == last) break;
+
+            current = current.next;
+            if (i >= size - distance) {
+                backPointer = backPointer.next;
+            }
+        }
+        return backPointer.value;
+    }
 }
+
+
+
+
+
 
 
 
