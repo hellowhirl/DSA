@@ -1,28 +1,20 @@
 package com.DSA;
 
-import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-    	LinkedList list = new LinkedList();
-		System.out.println("initial list size: " + list.size());
-    	list.addLast(10);
-    	list.addLast(20);
-    	list.addLast(30);
-    	list.addFirst(1);
-    	list.addLast(47);
-		System.out.println(list.indexOf(20));
-		System.out.println(list.indexOf(100));
-		System.out.println(list.size());
-		System.out.println(list.contains(30));
-		list.removeLast();
-		list.removeFirst();
-//		list.reverse();
-		list.addLast(40);
-		list.addLast(50);
-		var array = list.toArray();
-		System.out.println(Arrays.toString(array));
-		System.out.println("list size: " + list.size());
-		System.out.println("kthFromTheEnd: " + list.getKthFromTheEnd(3));
+    public static void main(String[] args) {
+    	// Stack class is generic, it has angled bracks <E> so we can store any kinds of objects
+		Stack<Integer> stack = new Stack<>();
+		stack.push(10);
+		stack.push(20);
+		stack.push(30);
+		System.out.println(stack); // looks like array [ ], but it's just for presentation. Stacks behave differently
+		var top = stack.pop();
+		System.out.println("top: " + top);
+		System.out.println(stack);
+		var currentTOp = stack.peek();
+		System.out.println("currentTOp: " + currentTOp);
+		System.out.println(stack.isEmpty());
 	}
 }

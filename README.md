@@ -110,7 +110,7 @@ Java has 2 implementations of dynamic arrays, classes from java.util package
 
 ## Linked Lists
 
-- Most common data structure after arrays
+- 2nd most common data structure (after arrays)
   - they solve many of the problems with arrays - used for complex data structures
   
 - Used to store a list of objects in sequence
@@ -174,3 +174,30 @@ General tips:
   - Once we solve a specific problem then we can generalize our algorithm
   
 - A lot of linked list problems can be solved using 2 pointers (pointing to 2 different nodes)
+
+## Stacks
+
+Powerful data structures that can help us solve complex programming problems
+- undo function
+- compilers (eg syntax checking)
+- evaulate arithmetic expressions in calculator like: 1 + 2 * 3
+- navigation in applications (back and forward buttons)
+
+Last In First Out (LIFO) Principle
+- example: the last action that was performed is first one that can be undone
+
+Internally an Array or LinkedList is used to store the items in a Stack
+
+A Stack is a wrapper around an Array/LinkedList that gives us different way to store and access bojects
+
+### Stack operations
+- push(item) - adds item on top of the stack
+- pop() - removes item on top
+- peek() - returns item on top without removing
+- isEmpty() - returns boolean whether stack is empty or not
+
+All Stack operations run in Time of O(1)
+
+Stacks do not have lookups, because they are not meant for that (except for rarely used search() method)
+
+Any task that involves doing soething in reverse order then Stacks are the way to go
