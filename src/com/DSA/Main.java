@@ -23,6 +23,6 @@ public class Main {
 		var array = list.toArray();
 		System.out.println(Arrays.toString(array));
 		System.out.println("list size: " + list.size());
-		System.out.println("kthFromTheEnd: " + list.getKthFromTheEnd(2));
+		System.out.println("kthFromTheEnd: " + list.getKthFromTheEnd(3));
 	}
 }

@@ -150,7 +150,7 @@ Need to be able to explain in terms of time (above) and space complexity (below)
   - If we don't know size in advance then we should use dynamic arrays or linked lists
   
 - Dynamic arrays grow by 50%-100% every time they're resized and may end up wasting memory
-- Linked lists only take as much memory as they really need
+- Linked lists only take as much memory as they really need - grow and shrink automatically
   - Up front they tend to take up more memory because they are storing and value and address of next node
   
 - Example: if we have a rough estimate of 100 items we should use a dynamic array, and set size to 100 at first

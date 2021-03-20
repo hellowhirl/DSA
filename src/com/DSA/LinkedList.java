@@ -156,13 +156,12 @@ public class LinkedList {
         first = lastReference;
     }
 
-    public int getKthFromTheEnd(int k) {
-        if(k > size || k <= 0) throw new Error("Not within range Megatron");
+    public int getKthFromTheEndWithSize(int k) {
+        if(k > size || k <= 0) throw new IllegalArgumentException("Out of range Megatron");
 
         var backPointer = first;
         var current = first;
         var distance = size - k;
-        System.out.println("pistance: " + distance);
 
         for (int i = 1; i < size; i++) {
             if (current == last) break;
@@ -173,6 +172,30 @@ public class LinkedList {
             }
         }
         return backPointer.value;
+    }
+
+    public int getKthFromTheEnd(int k) {
+        // if our list is empty then none of the logic beyond this if statement check should happen
+        if(isEmpty()) throw new IllegalStateException("Out of range Megatron");
+
+        var aPointer = first;
+        var bPointer = first;
+
+        // k - 1 is how we calculate the distance between our 2 pointers
+        for (int i = 0; i < k - 1; i++){
+            bPointer = bPointer.next; // this will space out our pointers to the exact distance of kth node from the End
+            if (bPointer == null) {
+                throw new IllegalArgumentException("CAN NOT"); // valid solution when we don't know size of list beforehand
+            }
+        }
+
+        // aPointer stops moving when bPointer hits the last node
+        while (bPointer != last) {
+            aPointer = aPointer.next;
+            bPointer = bPointer.next;
+        }
+
+        return aPointer.value;
     }
 }
 
