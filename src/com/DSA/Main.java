@@ -4,9 +4,10 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "abcd"; // 'var' also works
-        var reverser = new StringReverser();
+        String str = "(1 + 2) (1 - ()) (<> {} [])  ";
+        ExpressionBalancer tester = new ExpressionBalancer();
 
-        System.out.println(reverser.reverse(str));
+        System.out.println(tester.isBalanced(str));
+
 	}
 }

@@ -9,7 +9,7 @@ public class StringReverser {
         Stack<Character> stack = new Stack<>(); // new Stack<>() goes together when we specifc an object in first <>
 
         for (int i = 0; i <input.length(); i++) {
-            stack.push((input.charAt(i)));
+            stack.push(input.charAt(i));
         }
 
         StringBuffer reversed = new StringBuffer(); // StringBuffer is better for string manipulation operations in Java
@@ -20,3 +20,10 @@ public class StringReverser {
         return reversed.toString();
     }
 }
+
+// run this code in main function of Main class
+
+//    String str = "abcd"; // 'var' also works
+//    var reverser = new StringReverser();
+//
+//        System.out.println(reverser.reverse(str));
