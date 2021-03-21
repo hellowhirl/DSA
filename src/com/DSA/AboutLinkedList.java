@@ -5,7 +5,8 @@ import java.util.LinkedList;
 
 public class AboutLinkedList {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList(); // if we don't specify anything with <> then we can store any kind of object
+        LinkedList list = new LinkedList(); // if we don't specify anything in <> then we can store any kind of objects
+        // LinkedList<Integer> test = new LinkedList<>(); // use Inteeger class, which will wrap a primitive int
         list.addLast(10);
         list.addLast(20);
         list.addLast(30);
