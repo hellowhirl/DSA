@@ -1,37 +1,50 @@
 package com.DSA;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ExpressionBalancer {
-    public static boolean isBalanced(String input) {
-        Stack<CharSequence> theBrackets = new Stack<>();
-        String[] array = input.split("");
+    private static final List<Character> leftBrackets = Arrays.asList('(', '[', '{', '<');
+    private static final List<Character> rightBrackets = Arrays.asList(')', ']', '}', '>');
+    //    private static final Arrays.asList()
 
-        for (String s : array) {
-            if (getMatcher(s)) {
-                theBrackets.push(s);
-                continue;
+    public static boolean isBalanced(String input) {
+        Stack<Character> theBrackets = new Stack<>();
+
+        for (char ch : input.toCharArray()) {
+            if (leftSide(ch)) {
+                theBrackets.push(ch);
             }
-            if (s.equals(")") && theBrackets.peek().equals("("))
-                theBrackets.pop();
-            if (s.equals("]") && theBrackets.peek().equals("["))
-                theBrackets.pop();
-            if (s.equals("}") && theBrackets.peek().equals("{"))
-                theBrackets.pop();
-            if (s.equals(">") && theBrackets.peek().equals("<"))
-                theBrackets.pop();
+
+            if (rightSide(ch)) {
+                if (theBrackets.isEmpty()) return false;
+
+                var top = theBrackets.pop(); // check to see if this popped bracket matches the incoming one
+                if (!checkMatch(top, ch)) return false;
+            }
         }
         System.out.println(theBrackets);
         return theBrackets.isEmpty();
     }
 
-    private static boolean getMatcher(CharSequence input) {
-        String regex = "[\\[{]|[(]|<";
+    private static boolean leftSide(char input) {
+        return leftBrackets.contains(input);
+    }
 
-        Pattern pattern = Pattern.compile(regex);
-        Matcher match = pattern.matcher(input);
-        return match.matches();
+    private static boolean rightSide(char input) {
+        return rightBrackets.contains(input);
+    }
+
+    private static boolean checkMatch(char left, char right) {
+        return leftBrackets.indexOf(left) == rightBrackets.indexOf(right);
+
     }
 }
+
+//// to test in Main Class ////
+
+// String str = "() <>";
+// ExpressionBalancer expressionTester = new ExpressionBalancer();
+// System.out.println(expressionTester.isBalanced(str));

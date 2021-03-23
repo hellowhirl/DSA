@@ -196,8 +196,8 @@ A Stack is a wrapper around an Array/LinkedList that gives us different way to s
 - peek() - returns item on top without removing
 - isEmpty() - returns boolean whether stack is empty or not
 
-All Stack operations run in Time of O(1)
+All Stack operations run in Time of O(1) - because items are simply added & removed from the end
 
 Stacks do not have lookups, because they are not meant for that (except for rarely used search() method)
 
-Any task that involves doing soething in reverse order then Stacks are the way to go
+Any task that involves doing something in reverse order then Stacks are the way to go

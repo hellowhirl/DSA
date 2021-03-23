@@ -1,13 +1,16 @@
 package com.DSA;
 
-import java.util.Stack;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String str = "(1 + 2) (1 - ()) (<> {} [])  ";
-        ExpressionBalancer tester = new ExpressionBalancer();
-
-        System.out.println(tester.isBalanced(str));
-
+        var test = new Stack();
+        test.push(10);
+        test.push(20);
+        test.push(30);
+        test.pop();
+        System.out.println(test.peek());
+        System.out.println(test.isEmpty());
+        System.out.println(test); // when we pass object to printLn method it calls toString method on that object
 	}
 }

@@ -3,7 +3,7 @@ package com.DSA;
 public class Array {
     private int length;
     private int currentCount = 0;
-    public int[] myArray = new int[0];
+    private int[] myArray = new int[0]; // private field for our Array class
 
     public Array(int length) {
         this.length = length;
