@@ -101,7 +101,7 @@ Delete - O(n)
 
 // we use Arrays class to use `toString` method
 
-```
+```java
 System.out.println(Arrays.toString(numbers)); 
 ```
 Java has 2 implementations of dynamic arrays, classes from java.util package 
@@ -201,3 +201,81 @@ All Stack operations run in Time of O(1) - because items are simply added & remo
 Stacks do not have lookups, because they are not meant for that (except for rarely used search() method)
 
 Any task that involves doing something in reverse order then Stacks are the way to go
+
+## Queues
+
+Used anywhere we want to process jobs based on the order they are received
+
+First-In-First-Out (FIFO)
+
+We have a resource, and that resource must be shared amongst many consumers
+- consumers should line up one by one to use the resource
+  - printers: prints jobs in order they are submitted
+  - operating systems: manage processes, which wait in queue for their turn to run
+  - web servers: manage incoming requests, processed in order received
+  - Live support systems: can only service one person/ticket at a time
+  
+### Queue Operations
+
+- enqueue
+  - adding an item at the back of the queue
+- dequeue 
+  - removing an item at the front of the queue
+- peek 
+  - getting item from the front without removing it
+- isEmpty()
+- isFull()
+
+All Queue operations run in Constant Time of O(1) - because items are simply added or removed from the ends
+
+- In Java Queues do not have code like a Class so we cannot instantiate them
+  - A Queue is an Interface
+  - Interfaces are 'contracts', it declares the list of methods that Queue implementations should provide
+    - it says "anyone who wants to implement a Queue should have these methods"
+  
+- The two class implementations that we use for Queues most of the time are ArrayDeque and LinkedList
+  - Dequeue is short for 'double-ended queue'
+  - Can add items from any direction: internally this class uses a resizable array to store the items
+
+### Queue Interface Methods
+
+- Enqueue
+  - add()
+  - offer()
+    - if queue gets full then add() will throw an exception, whereas offer() offers a value but the queue may not accept it
+    - Sometimes queue can get full depending on implementation (may have a limit)
+
+- Dequeue
+  - pull()
+  - remove()
+    - if queue is empty then remove() will throw an exception, whereas pull() will return null
+
+- Peek
+  - peek()
+  - element()
+    - if queue is empty then element() will throw an exception, whereas peek() will return null
+  
+```java
+Queue<Integer> queue = new ArrayDeque<>();
+
+//`Queue<Integer> queue` is the Interface (contract)
+
+//`new ArrayDeque<>();` is the implementation
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

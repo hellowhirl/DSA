@@ -6,7 +6,7 @@ public class StringReverser {
     public String reverse(String input) {
         if(input == null) throw new IllegalArgumentException();
 
-        Stack<Character> stack = new Stack<>(); // new Stack<>() goes together when we specifc an object in first <>
+        Stack<Character> stack = new Stack<>(); // '<>' in 'new Stack<>()' goes together when we specify an object in first <>
 
         for (int i = 0; i <input.length(); i++) {
             stack.push(input.charAt(i));
@@ -26,4 +26,4 @@ public class StringReverser {
 //    String str = "abcd"; // 'var' also works
 //    var reverser = new StringReverser();
 //
-//        System.out.println(reverser.reverse(str));
+//    System.out.println(reverser.reverse(str));
