@@ -263,6 +263,11 @@ Queue<Integer> queue = new ArrayDeque<>();
 //`new ArrayDeque<>();` is the implementation
 ```
 
+There are 3 ways to implement a Queue; we can store the items in:
+- Array
+- Linked List
+- Stack
+
 
 
 
