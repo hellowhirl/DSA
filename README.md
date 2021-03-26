@@ -268,10 +268,12 @@ There are 3 ways to implement a Queue; we can store the items in:
 - Linked List
 - Stack
 
+### Circular Arrays
 
-
-
-
+- when we have space an array it is more efficient to use it than resizing the array
+- circular arrays connect the end of an array to its beginning (like a circle)
+  - technically there is no circle in memory (as all items are stored ssequentially in order) but this is how we visualize it
+- To implement
 
 
 

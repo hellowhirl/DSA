@@ -14,14 +14,20 @@ public class ArrayQueue {
     }
 
     public void enqueue(int value) {
+        System.out.println("enqueue: " + value + ", " + count);
         if (count == items.length) throw new IllegalStateException();
-        items[rear++] = value; // [rear++] is shorthand
+        items[rear] = value; // [rear++] is shorthand
+        rear = (rear + 1) % items.length; // simulates circular array
         count++;
     }
 
     public int dequeue() {
+        var marker = items[front];
+        System.out.println("removed: " + marker);
+        items[front] = 0; // just to indicate empty slots in our array
+        front = (front + 1) % items.length; // simulates circular array
         count--;
-        return items[front++];
+        return marker;
     }
 
     public int peek() {
@@ -29,11 +35,11 @@ public class ArrayQueue {
     }
 
     public boolean isEmpty() {
-        return rear < front;
+        return count == 0;
     }
 
     public boolean isFull() {
-        return rear == items.length;
+        return count == items.length;
     }
 
     @Override
