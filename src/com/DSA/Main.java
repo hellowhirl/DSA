@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        var queue = new ArrayQueue();
-
+        var queue = new ArrayQueue(5); // in InteliJ we can simply type 'AQ' and it will autofill our class
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -14,6 +13,6 @@ public class Main {
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
         System.out.println(queue.peek());
-//        System.out.println(Arrays.toString(test));
+        System.out.println(queue); // works after we override the toString method in our ArrayQueue class
     }
 }

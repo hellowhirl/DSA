@@ -3,13 +3,18 @@ package com.DSA;
 import java.util.Arrays;
 
 public class ArrayQueue {
-    int[] queue = new int[5];
-    int front = 0;
-    int rear = 0;
+    private final int[] items;
+    private int front = 0; // always make sure to hide these fields from outside by making 'private'
+    private int rear = 0;
+
+    // nicer if we have a constructor to set this initial capacity
+    public ArrayQueue(int capacity) {
+        items = new int[capacity];
+    }
 
     public void enqueue(int value) {
-        queue[rear] = value;
-        rear++;
+        if (front == items.length) throw new IllegalStateException();
+        items[rear++] = value; // [rear++] is shorthand
     }
 
     public void dequeue() {
@@ -17,9 +22,9 @@ public class ArrayQueue {
     }
 
     public int peek() {
-        System.out.println(Arrays.toString(queue));
+        System.out.println(Arrays.toString(items));
         System.out.println(rear);
-        return queue[front];
+        return items[front];
     }
 
     public boolean isEmpty() {
@@ -27,6 +32,11 @@ public class ArrayQueue {
     }
 
     public boolean isFull() {
-        return rear == queue.length;
+        return rear == items.length;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(items);
     }
 }
