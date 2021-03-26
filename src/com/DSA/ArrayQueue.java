@@ -6,6 +6,7 @@ public class ArrayQueue {
     private final int[] items;
     private int front = 0; // always make sure to hide these fields from outside by making 'private'
     private int rear = 0;
+    private int count = 0;
 
     // nicer if we have a constructor to set this initial capacity
     public ArrayQueue(int capacity) {
@@ -13,17 +14,17 @@ public class ArrayQueue {
     }
 
     public void enqueue(int value) {
-        if (front == items.length) throw new IllegalStateException();
+        if (count == items.length) throw new IllegalStateException();
         items[rear++] = value; // [rear++] is shorthand
+        count++;
     }
 
-    public void dequeue() {
-        front++;
+    public int dequeue() {
+        count--;
+        return items[front++];
     }
 
     public int peek() {
-        System.out.println(Arrays.toString(items));
-        System.out.println(rear);
         return items[front];
     }
 

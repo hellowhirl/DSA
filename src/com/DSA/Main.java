@@ -12,7 +12,12 @@ public class Main {
         queue.enqueue(5);
         System.out.println(queue.isEmpty());
         System.out.println(queue.isFull());
-        System.out.println(queue.peek());
-        System.out.println(queue); // works after we override the toString method in our ArrayQueue class
+        System.out.println("peek: " + queue.peek());
+        System.out.println("overwritten toString: " + queue); // works after we override the toString method in our ArrayQueue class
+
+        var removed = queue.dequeue();
+        System.out.println("removed " + removed);
+        System.out.println("peek: " + queue.peek());
+        queue.enqueue(6);
     }
 }
