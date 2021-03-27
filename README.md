@@ -275,6 +275,10 @@ There are 3 ways to implement a Queue; we can store the items in:
   - technically there is no circle in memory (as all items are stored ssequentially in order) but this is how we visualize it
 - To implement
 
+### Priority Queues
+
+- objects are processed based on their priority (not the order in which they joined the queue)
+- In Java there is the class `PriorityQueue`; it is a generic<> class
 
 
 
