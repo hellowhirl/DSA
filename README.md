@@ -279,7 +279,9 @@ There are 3 ways to implement a Queue; we can store the items in:
 
 - objects are processed based on their priority (not the order in which they joined the queue)
 - In Java there is the class `PriorityQueue`; it is a generic<> class
-
+- There are 2 ways we can implement Priority Queues
+  - Arrays
+  - Heap
 
 
 
