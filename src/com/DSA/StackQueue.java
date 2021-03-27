@@ -34,6 +34,14 @@ public class StackQueue {
         return top;
     }
 
+    public boolean isEmpty() {
+        return finalStack.isEmpty();
+    }
+
+    public int peek() {
+        return finalStack.peek();
+    }
+
     @Override
     public String toString() {
         return finalStack.toString();
