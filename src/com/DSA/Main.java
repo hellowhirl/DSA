@@ -12,5 +12,8 @@ public class Main {
         queue.enqueue(4);
         System.out.println(queue);
         System.out.println(queue.dequeue());
+        System.out.println(queue);
+        System.out.println(queue.isEmpty());
+        System.out.println(queue.peek());
     }
 }
