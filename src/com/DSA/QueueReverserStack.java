@@ -18,7 +18,7 @@ public class QueueReverserStack {
 
     public static void reverse(Queue<Integer> queue) {
         // this is a problem that involves doing something in the reverse order - best to use a Stack
-        java.util.Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
         while (!queue.isEmpty()) {
             stack.push(queue.remove());
