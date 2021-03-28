@@ -7,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 //        System.out.println(firstRepeatedCharacter());
-        firstNonRepeat();
+        System.out.println(firstNonRepeat());
     }
 
-    public static void firstNonRepeat() {
+    public static char firstNonRepeat() {
         String testLetters = "a green apple";
         Map<Character, Integer> mapped = new HashMap<>();
         String[] single;
@@ -27,11 +27,13 @@ public class Main {
             mapped.put(c, count + 1);
         }
 
-//        for (var item: mapped.entrySet()) {
-//            System.out.println(item);
-//        }
+        for (int i = 0; i < testLetters.length(); i++) {
+            if (mapped.get(testLetters.charAt(i)) == 1)
+                return testLetters.charAt(i);
+        }
 
         System.out.println(mapped);
+        throw new Error("not in this string");
     }
 
     public static char firstRepeatedCharacter() {
