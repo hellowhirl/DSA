@@ -312,6 +312,11 @@ Delete - O(1)
 
 All operations are Time O(1) because we don't have iterate over entire array of objects
 
+### Hash Tables in Java
 
+- use a Map interface, which is a contract that declares all the methods that map data structures should provide
+  - most of the time we just use the HashMap class
+  - in Hash Maps we can store strigs, numbers, even null values (for both key and value)
+  
 
 
