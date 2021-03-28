@@ -307,8 +307,15 @@ There are 3 ways to implement a Queue; we can store the items in:
 #### Hash Table Operations
 
 Insert - O(1)
+  - put()
+
 Lookup - O(1)
+  - containsKey(), containsValue()
+  - keySet(), entrySet(), values()
+
 Delete - O(1)
+  - remove()
+    
 
 All operations are Time O(1) because we don't have iterate over entire array of objects
 
