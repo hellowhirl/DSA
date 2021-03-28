@@ -8,20 +8,26 @@ public class PriorityQueue {
 
     // Exercise: Building a Priority Queue using an Array
     public void insert(int item) {
-        if (count == itemsInQueue.length ) throw new IllegalStateException(); // a further challnege is to resize this array
+        if (isFull()) throw new IllegalStateException(); // a further challnege is to resize this array
 
+        int i = shiftItemsToInsert(item); // shorter and easier to understand by extracting this logic into a separate method
+        itemsInQueue[i] = item; // better to execute the [i + 1] logic before we indicate position to insert 'item'
+        count++; // increase count before next insert()
+    }
+
+    // method more clearly explain what it does - shifting items to insert this new `item`
+    private int shiftItemsToInsert(int item) {
         int i; // initialize the iterator variable outside the for loop so we don't lose reference to current item
         for(i = count - 1; i >= 0; i--) {
             // if item is greater than value at iteration then we want to shift current iteration item to te right
-            if (itemsInQueue[i] > item ) {
+            if (itemsInQueue[i] > item) {
                 itemsInQueue[i + 1] = itemsInQueue[i];
             }
             else {
                 break;
             }
         }
-        itemsInQueue[i + 1] = item; // we know where to insert new item based on when above for loop stopped
-        count++; // increase count before next insert()
+        return i + 1; // the position where we want to insert the new item
     }
 
     public int remove() {
@@ -32,6 +38,11 @@ public class PriorityQueue {
 
     public boolean isEmpty() {
         return count == 0;
+    }
+
+    // we can also reuse this method within our class
+    public boolean isFull() {
+        return count == itemsInQueue.length;
     }
 
     @Override
