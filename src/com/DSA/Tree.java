@@ -21,29 +21,30 @@ public class Tree {
     private Node root;
 
     public void insert(int value) {
+        var node = new Node(value); // best to create new node at beginning of this method
+
         if (root == null) {
-            root = new Node(value);
+            root = node;
             return;
         }
 
         var current = root;
-        // set to infinite while loop until we find a parent, becasue eventually we will
+        // set to infinite while loop until we find a parent, because eventually we will
         while (true) {
             if (value < current.value) {
-                var reference = current;
-                current = current.leftChild;
-                if (current == null) {
-                    reference.leftChild = new Node(value);
-                    return;
+                // check to see if leftChild is null first, and if it is then we can set to node with new value
+                if (current.leftChild == null) {
+                    current.leftChild = node; // set current.leftChild
+                    break;
                 }
+                current = current.leftChild; // otherwise we keep traversing current down the tree
             }
             else {
-                var reference = current;
-                current = current.rightChild;
-                if (current == null) {
-                    reference.rightChild = new Node(value);
-                    return;
+                if (current.rightChild == null) {
+                    current.rightChild = node;
+                    break;
                 }
+                current = current.rightChild;
             }
         }
 
@@ -52,12 +53,13 @@ public class Tree {
     public boolean find(int value) {
         var current = root;
         while (current != null ){
-            if (value == current.value) return true;
-            else if (value < current.value) {
+            if (value < current.value) {
                 current = current.leftChild;
             }
-            else {
+            else if (value > current.value)
                 current = current.rightChild;
+            else {
+                return true; // more logical/cleaner to return true at the end of these if/else statements
             }
         }
         return false;
