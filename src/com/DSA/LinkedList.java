@@ -4,13 +4,14 @@ import java.util.NoSuchElementException;
 
 public class LinkedList {
     private class Node {
-        private int value;
+        private int value; // whenever we create a Node object it should always store a value
         private Node next;
 
         // constructor for intiializing the value each time we create a new Node object
         public Node(int value) {
             this.value = value; // whenever we create a Node object we should always store the passed value
         }
+        // now our Node will always be in a valid state (we won't have a Node without a value; that doesn't make sense)
     }
 
     private Node first;

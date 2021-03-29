@@ -365,7 +365,7 @@ All operations are Time O(1) because we don't have iterate over entire array of 
 #### Logorithmic Time, O(log n)
 
 - whenever we throw out half of our items and narrow down our search we have logorathimic time complexity
-- in trees all operations are O(log n)
+- in trees all operations are O(log n); assumed for the case when we have a Good Binary Search Tree
   - Lookup
   - Insert, uses Lookup algorithm to find where to isnert (setting link is O(1) though)
   - Delete, uses Lookup algorithm, remove from tree by reconnecting the Edges
