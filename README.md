@@ -1,4 +1,6 @@
-# Data Structures & Algorithms
+### Data Structures & Algorithms
+
+# Time and Space Complexities
 
 ## Big O
 
@@ -69,6 +71,10 @@
   - We always have the input of size n so we don't count it; we just analyze how much extra space we need to allocate to this algorithm
 - We will focus mostly on Runtime Complexity (because it's a bit more tricky)
 - Always think about ways to preserve memory in our applications
+
+# Linear Data Structures
+
+A line of items one after the another
 
 ## Arrays
 
@@ -325,5 +331,42 @@ All operations are Time O(1) because we don't have iterate over entire array of 
   - most of the time we just use the HashMap class
   - in Hash Maps we can store strigs, numbers, even null values (for both key and value)
   
+# Non-Linear Data Structures
 
+## Binary Trees
 
+- a tree is a data structure that stores elements in a hierarcy
+  - the elements are referred to as Nodes and lines that connect them as Edges
+  - each Node contains a value/data
+    - can be integers or objects
+  
+- Root: the top node in a tree
+  - has children - if it has 2 children Nodes then this root Node is their parent
+  
+- Nodes in middle can have children as well
+  Leaf Nodes: these are at the bottom and don't have any children
+  
+- a tree that has a maximum of 2 children is called a Binary Tree
+
+### Applications for Trees
+
+- Anywhere we want to represent hierarchical data (organization chart, files/folders)
+- Databases - use trees for indexing and quickly look up data
+- Autocompletion - Chrome matches your query with previously stored queries
+- Compilers - syntax trees to parse expressions
+- Compression (JPEG, MP3)
+
+#### Binary Search Tree
+
+- left < node < right
+- all nodes in left sub-tree will be smller than parent node, and vice versa for right sub-tree
+- we can quickly look up a value with a binary search tree (don't need to traverse entire tree/list)
+
+#### Logorithmic Time, O(log n)
+
+- whenever we throw out half of our items and narrow down our search we have logorathimic time complexity
+- in trees all operations are O(log n)
+  - Lookup
+  - Insert, uses Lookup algorithm to find where to isnert (setting link is O(1) though)
+  - Delete, uses Lookup algorithm, remove from tree by reconnecting the Edges
+  
