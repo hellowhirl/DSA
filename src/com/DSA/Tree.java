@@ -10,30 +10,39 @@ public class Tree {
         public Node (int value) {
             this.value = value;
         }
+
+        // be able to see the value right away (without having to expand field in debug mode)
+        @Override
+        public String toString() {
+            return "Node=" + value;
+        }
     }
 
     private Node root;
 
-    public void insert(int item) {
-        var node = new Node(item);
+    public void insert(int value) {
         if (root == null) {
-            root = node;
+            root = new Node(value);
             return;
         }
+
         var current = root;
-        while (current != null ){
-            if (node.value < current.value) {
+        // set to infinite while loop until we find a parent, becasue eventually we will
+        while (true) {
+            if (value < current.value) {
                 var reference = current;
                 current = current.leftChild;
                 if (current == null) {
-                    reference.leftChild = node;
+                    reference.leftChild = new Node(value);
+                    return;
                 }
             }
             else {
                 var reference = current;
                 current = current.rightChild;
                 if (current == null) {
-                    reference.rightChild = node;
+                    reference.rightChild = new Node(value);
+                    return;
                 }
             }
         }
