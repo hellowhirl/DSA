@@ -3,13 +3,8 @@ package com.DSA;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RepeatedCharacterExercises {
-    public static void main(String[] args) {
-//        System.out.println(firstRepeatedCharacter());
-        System.out.println(firstNonRepeat());
-    }
-
-    public static char firstNonRepeat() {
+public class CharFinder {
+    public char firstNonRepeat() {
         String testLetters = "a green apple";
         Map<Character, Integer> mapped = new HashMap<>();
         String[] single;
@@ -35,22 +30,19 @@ public class RepeatedCharacterExercises {
         throw new Error("not in this string");
     }
 
-    public static char firstRepeatedCharacter() {
-        String testLetters = "a green apple";
+    public char firstRepeatedCharacter(String input) {
         Map<Integer, Character> mapped = new HashMap<>();
 
-        int i;
         char repeatedCharacter = 0;
-        for (i = 0; i < testLetters.length(); i++) {
-            if(mapped.containsValue(testLetters.charAt(i))) {
-                repeatedCharacter = testLetters.charAt(i);
+        for (int i = 0; i < input.length(); i++) {
+            if(mapped.containsValue(input.charAt(i))) {
+                repeatedCharacter = input.charAt(i);
                 break;
             }
-            char c = testLetters.charAt(i);
+            char c = input.charAt(i);
             mapped.put(i, c);
         }
 
-        System.out.println(mapped);
         return repeatedCharacter;
     }
 
