@@ -4,13 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CharFinder {
-    public char firstNonRepeat() {
-        String testLetters = "a green apple";
+    public char firstNonRepeatCharacter(String input) {
         Map<Character, Integer> mapped = new HashMap<>();
-        String[] single;
 
-        for (int i = 0; i < testLetters.length(); i++) {
-            char c = testLetters.charAt(i);
+        // can also be done by converting input to a charArray so we can iterate over it
+//        for (char ch: input.toCharArray()) {
+//            if (mapped.containsKey(ch)) {
+//                var count = mapped.get(ch);
+//                mapped.put(ch, count);
+//            } else
+//                mapped.put(ch, count + 1);
+//        }
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
             int count;
 //            count = mapped.getOrDefault(c, 0); // shorthand
             if (mapped.containsKey(c)) {
@@ -21,13 +28,13 @@ public class CharFinder {
             mapped.put(c, count + 1);
         }
 
-        for (int i = 0; i < testLetters.length(); i++) {
-            if (mapped.get(testLetters.charAt(i)) == 1)
-                return testLetters.charAt(i);
+        for (int i = 0; i < input.length(); i++) {
+            if (mapped.get(input.charAt(i)) == 1)
+                return input.charAt(i);
         }
 
-        System.out.println(mapped);
         throw new Error("not in this string");
+//        return Character.MIN_VALUE; // also works?
     }
 
     public char firstRepeatedCharacter(String input) {

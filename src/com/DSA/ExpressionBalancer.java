@@ -13,6 +13,7 @@ public class ExpressionBalancer {
     public static boolean isBalanced(String input) {
         Stack<Character> theBrackets = new Stack<>();
 
+        // we cannot iterate over a string in Java so we have to convert it to a character array
         for (char ch : input.toCharArray()) {
             if (leftSide(ch)) {
                 theBrackets.push(ch);
