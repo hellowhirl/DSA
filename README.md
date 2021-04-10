@@ -331,6 +331,24 @@ All operations are Time O(1) because we don't have iterate over entire array of 
   - most of the time we just use the HashMap class
   - in Hash Maps we can store strigs, numbers, even null values (for both key and value)
   
+### Hash Functions (hashing)
+
+- internally a hash table maps a key to an index value
+- a hash function is a function that gets a value to a different kind of value (an index value)
+- the value from a hash function known as hash value, hash code, digest, or hash
+  
+- There are many algorithms for calculating hashes for cryptography, passwords, etc.
+  - a hash function generates a long and complicated string based on a password for a hash value
+  - each hash value will have a hash index (number) to be stored in an array 
+  
+- In Java every object has a method called:
+  
+`hashCode()`
+
+  - for example it will convert a string to a hash value
+  - the HashMap class in Java uses this hash code and then does some extra work to map it to an index value
+
+
 # Non-Linear Data Structures
 
 ## Binary Trees
