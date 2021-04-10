@@ -348,6 +348,38 @@ All operations are Time O(1) because we don't have iterate over entire array of 
   - for example it will convert a string to a hash value
   - the HashMap class in Java uses this hash code and then does some extra work to map it to an index value
 
+### Collisions
+
+- When 2 distinct keys generate the same value, we can deal with it in 2 approaches
+  - Chaining: adding at end of linked list
+  - Open Addressing : find different slot for storing the 2nd value
+
+### Chaining
+
+- Ex. we have an array of 5 cells for storing items (in buckets/slots which are initially null/empty) 
+
+K = 6, V = A  (6 % 5 = 1)
+- We don't store a value directly in a cell, instead we wrap in a linked list node
+  - then we have the cell at index 1 point to this node with value: A
+- 11 % 5: go to cell at index 1, store the value at the end of the linked list
+- with this approach we no longer have collisions so these linked lists can grow or shrink automatically
+
+### Open Addressing
+
+#### Llinear Probing (VERY SLOW)
+
+- seardching for another open location and moving forward until we find an empty slot
+- if we can't find any open slots then it means our table is full
+- Formula (apply modules operator): `hash(key) + 1`
+- Cluster: probing takes longer around back to back filled value patches, adding at end of cluster
+
+#### Quadratic Probing
+
+- Formula: `(hash(key) + i^2) % table_size`
+- key value pairs get spread out more widely - solves cluster problem
+- other problem: may end up in infinte loop after jumping outside of array over and over
+
+
 
 # Non-Linear Data Structures
 
