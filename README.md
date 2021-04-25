@@ -366,6 +366,8 @@ K = 6, V = A  (6 % 5 = 1)
 
 ### Open Addressing
 
+When we have a collision we should probe for an empty slot
+
 #### Linear Probing (VERY SLOW)
 
 - seardching for another open location and moving forward until we find an empty slot
@@ -385,6 +387,7 @@ K = 6, V = A  (6 % 5 = 1)
   
 `(hash(key) + i^2) % table_size`
 
+- if we change `i` to `i^2` then we have a quadratic equation
 - key value pairs get spread out more widely - solves cluster problem
 - other problem: may end up in infinte loop after jumping outside of array over and over
 
@@ -398,12 +401,26 @@ A popular 2nd hash function:
 `hash2(key) = prime - (key % prime)`
 
 Calculate the index using the double hashing algorithm:
+
 `(hash1(key) + i * hash2(key)) % table_size`
 
 - `prime` is a prime number that should be smaller than our table
 - origins of this formula: who knows
 - the only difference is now we use i times the 2nd hash value
+- for a large array the key value pairs will be more spread out
 
+Table of 5 slots (0 - 4) example (K = 11, V = C), (key 1,A and 3,B are full) collision case:
+
+```
+hash1(key) = key % table_size
+hash1(key) = 11 % 5 = 1
+
+hash2(key) = prime - (key % prime)
+hash2(key) = 3 - (11 % 3)` = 1
+
+index = (hash1(key) + i * hash2(key)) % table_size`
+index = (1 + 1 * 1) % 5 = 2
+```
 
 # Non-Linear Data Structures
 
