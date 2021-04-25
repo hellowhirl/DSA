@@ -366,19 +366,43 @@ K = 6, V = A  (6 % 5 = 1)
 
 ### Open Addressing
 
-#### Llinear Probing (VERY SLOW)
+#### Linear Probing (VERY SLOW)
 
 - seardching for another open location and moving forward until we find an empty slot
 - if we can't find any open slots then it means our table is full
-- Formula (apply modules operator): `hash(key) + 1`
+- Formula (apply modulus operator): 
+  
+`hash(key) + 1`
+
+- `i` is like a loop variable, incremeenting by 1 at each step (starts at 0)
+- it's possible that `i` ends up being outside our array, so we should apply the modulus operator (%)
+  - this reduces the result to a range that can fit within the array
 - Cluster: probing takes longer around back to back filled value patches, adding at end of cluster
 
 #### Quadratic Probing
 
-- Formula: `(hash(key) + i^2) % table_size`
+- Formula: 
+  
+`(hash(key) + i^2) % table_size`
+
 - key value pairs get spread out more widely - solves cluster problem
 - other problem: may end up in infinte loop after jumping outside of array over and over
 
+#### Double Hashing
+
+- use a different independent hash function to calculate the number of steps to go to insert in empty space
+- Formula:
+
+A popular 2nd hash function:
+
+`hash2(key) = prime - (key % prime)`
+
+Calculate the index using the double hashing algorithm:
+`(hash1(key) + i * hash2(key)) % table_size`
+
+- `prime` is a prime number that should be smaller than our table
+- origins of this formula: who knows
+- the only difference is now we use i times the 2nd hash value
 
 
 # Non-Linear Data Structures
