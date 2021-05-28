@@ -293,22 +293,22 @@ There are 3 ways to implement a Queue; we can store the items in:
 
 ### Basics
 
-- Helpful for super fast lookups. They are Sused in:
+- Helpful for super fast lookups. They are used in:
   - Spell checker: can look up a word amongst 1,000's of words in less than a second
   - Dictionaries: quicly find a translation in another language
   - Compilers: look up address of functions and variables
   - Code edtiors: or anywhere we want to look up an item super fast
   
-- Each programming lnaguage has their own version of Hash Tables
+- Each programming language has their own version of Hash Tables
   - Object (JavaScript), Hash Table (Java), Dictionary (Python and C#)
 
-- We use Hash Tables to store key/value paris
+- We use Hash Tables to store key/value pairs
 - A Hash Table takes the key, passes it to a Hash function and that tells where that object should be stored in memory
 - Hash function is "deterministic"
   - every time we give it the same input it will return the same value
     - this is why we can use it for both storing and retrieving objects
   
-- internally a Hash Tables uses an Array to store our objects
+- internally a Hash Table uses an Array to store our objects
 
 #### Hash Table Operations
 
@@ -329,7 +329,7 @@ All operations are Time O(1) because we don't have iterate over entire array of 
 
 - use a Map interface, which is a contract that declares all the methods that map data structures should provide
   - most of the time we just use the HashMap class
-  - in Hash Maps we can store strigs, numbers, even null values (for both key and value)
+  - in Hash Maps we can store strings, numbers, even null values (for both key and value)
   
 ### Hash Functions (hashing)
 
